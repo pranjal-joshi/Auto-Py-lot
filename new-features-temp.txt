@@ -1,0 +1,11 @@
+# Returns targets in given range of distance
+def getTargetsInDistRange(angleList, distList, minRange=20, maxRange=150):
+    a = np.array(angleList)
+    d = np.array(distList)
+    index = d.argsort()
+    a = a[index]
+    d = d[index]
+    rangedIndex = np.where(np.logical_and(d>minRange,d<maxRange))[0].tolist()
+    a = a[rangedIndex].tolist()
+    d = d[rangedIndex].tolist()
+    return a, d
